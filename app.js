@@ -7,10 +7,10 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput = document.getElementById("new-task"); //Add a new task.
+var taskInput = document.querySelector(".add-item__new-task"); //Add a new task.
 var addButton = document.getElementsByTagName("button")[0]; //first button
-var incompleteTaskHolder = document.getElementById("incompleteTasks"); //ul of #incompleteTasks
-var completedTasksHolder = document.getElementById("completed-tasks"); //completed-tasks
+var incompleteTaskHolder = document.querySelector(".todo__tasks"); //ul of #todo__tasks
+var completedTasksHolder = document.querySelector(".completed__tasks"); //completed-tasks
 
 //New task list item
 var createNewTaskElement = function (taskString) {
@@ -77,10 +77,10 @@ var editTask = function () {
   var editInput = listItem.querySelector("input[type=text]");
   var label = listItem.querySelector("label");
   var editBtn = listItem.querySelector(".edit");
-  var containsClass = listItem.classList.contains("editMode");
-  //If class of the parent is .editmode
+  var containsClass = listItem.classList.contains("todo__edit-more");
+  //If class of the parent is .todo__edit-more
   if (containsClass) {
-    //switch to .editmode
+    //switch to .todo__edit-more
     //label becomes the inputs value.
     label.innerText = editInput.value;
     editBtn.innerText = "Edit";
@@ -89,8 +89,8 @@ var editTask = function () {
     editBtn.innerText = "Save";
   }
 
-  //toggle .editmode on the parent.
-  listItem.classList.toggle("editMode");
+  //toggle .todo__edit-more on the parent.
+  listItem.classList.toggle("todo__edit-more");
 };
 
 //Delete task.
